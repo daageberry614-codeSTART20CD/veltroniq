@@ -1,0 +1,545 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Veltroniq — creative design, digital solutions, and online growth.">
+  <title>Veltroniq | Create Your Digital Future</title>
+
+  <style>
+    :root {
+      --bg: #080d18;
+      --panel: #101a2c;
+      --blue: #4f8cff;
+      --cyan: #41e0df;
+      --text: #f4f7ff;
+      --muted: #aab7cc;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(1120px, 90%);
+      margin: auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(8, 13, 24, .94);
+      border-bottom: 1px solid #1c2b43;
+      backdrop-filter: blur(12px);
+    }
+
+    nav {
+      min-height: 76px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .logo span { color: var(--cyan); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .nav-links a:hover { color: var(--cyan); }
+
+    .menu-btn {
+      display: none;
+      color: white;
+      background: var(--panel);
+      border: 1px solid #2c3d58;
+      border-radius: 8px;
+      padding: 9px 12px;
+      font-size: 1rem;
+    }
+
+    .hero {
+      padding: 100px 0 90px;
+      background:
+        radial-gradient(ellipse at 80% 20%, #14335b 0%, transparent 45%),
+        radial-gradient(ellipse at 10% 80%, #102b37 0%, transparent 40%);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 7px 13px;
+      color: var(--cyan);
+      border: 1px solid #28545f;
+      border-radius: 50px;
+      background: #0d202b;
+      font-size: .85rem;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      max-width: 800px;
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      line-height: 1.08;
+      letter-spacing: -2px;
+      margin-bottom: 24px;
+    }
+
+    .gradient {
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p, .section-intro {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 21px;
+      border-radius: 10px;
+      font-weight: 700;
+      border: 1px solid transparent;
+      cursor: pointer;
+      font-size: .95rem;
+    }
+
+    .btn-primary {
+      color: #07111c;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+    }
+
+    .btn-secondary {
+      border-color: #34445d;
+      background: #111b2d;
+    }
+
+    .btn:hover { transform: translateY(-2px); }
+
+    section { padding: 76px 0; }
+
+    .section-heading {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 12px;
+      letter-spacing: -1px;
+    }
+
+    .section-intro { margin-bottom: 34px; }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, #121e32, #0d1524);
+      border: 1px solid #26354d;
+      border-radius: 18px;
+      padding: 27px;
+      transition: .2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #4b8bce;
+    }
+
+    .card-icon {
+      display: grid;
+      place-items: center;
+      width: 48px;
+      height: 48px;
+      border-radius: 13px;
+      background: #18334b;
+      color: var(--cyan);
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+    }
+
+    .card h3 { margin-bottom: 10px; font-size: 1.2rem; }
+    .card p { color: var(--muted); margin-bottom: 20px; }
+    .card a { color: var(--cyan); font-weight: 700; }
+
+    .about-panel {
+      padding: 35px;
+      border: 1px solid #26354d;
+      border-radius: 20px;
+      background: linear-gradient(120deg, #111d30, #0c1825);
+    }
+
+    .about-panel p { color: var(--muted); margin-top: 12px; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 14px;
+      padding: 25px;
+      background: var(--panel);
+      border: 1px solid #26354d;
+      border-radius: 16px;
+    }
+
+    label { font-size: .9rem; color: var(--muted); }
+
+    input, textarea, select {
+      width: 100%;
+      margin-top: 6px;
+      padding: 13px;
+      border: 1px solid #34445d;
+      border-radius: 9px;
+      color: var(--text);
+      background: #091321;
+      font: inherit;
+    }
+
+    textarea { min-height: 120px; resize: vertical; }
+
+    .notice { color: var(--muted); font-size: .85rem; }
+
+    #form-status { color: var(--cyan); font-size: .9rem; }
+
+    footer {
+      border-top: 1px solid #1c2b43;
+      padding: 25px 0;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    @media (max-width: 760px) {
+      .menu-btn { display: block; }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        padding: 22px 5%;
+        background: #0b1321;
+        border-bottom: 1px solid #26354d;
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-links.open { display: flex; }
+      .hero { padding: 75px 0 65px; }
+      .cards, .contact-grid { grid-template-columns: 1fr; }
+      section { padding: 58px 0; }
+      .about-panel { padding: 25px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <nav class="container" aria-label="Main navigation">
+      <a class="logo" href="#home">Veltroni<span>q</span></a>
+
+      <button class="menu-btn" id="menu-btn"
+        aria-expanded="false" aria-controls="nav-links">
+        Menu ☰
+      </button>
+
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#explore">Explore</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="container">
+        <span class="eyebrow">Ideas into digital experiences</span>
+        <h1>Build something <span class="gradient">extraordinary.</span></h1>
+        <p>
+          Welcome to Veltroniq — a digital space for creative design,
+          modern technology, and ideas that help businesses and creators
+          move forward.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#services">Discover Services ↗</a>
+          <a class="btn btn-secondary" href="#about">Explore Veltroniq</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="services">
+      <div class="container">
+        <h2 class="section-heading">What we do</h2>
+        <p class="section-intro">
+          Explore digital services designed to turn your ideas into
+          clear, useful, and memorable experiences.
+        </p>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon">✦</div>
+            <h3>Creative Design</h3>
+            <p>Logos, brand identity, graphics, and visual content
+              that help your ideas stand out.</p>
+            <a href="#contact" data-topic="Creative Design">
+              Discuss a design ↗
+            </a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">⌘</div>
+            <h3>Digital Solutions</h3>
+            <p>Modern website concepts and digital experiences
+              designed around your goals.</p>
+            <a href="#contact" data-topic="Digital Solutions">
+              Discuss a project ↗
+            </a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">↗</div>
+            <h3>Online Growth</h3>
+            <p>Creative content ideas and practical digital
+              strategies to help your brand grow.</p>
+            <a href="#contact" data-topic="Online Growth">
+              Plan your next step ↗
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="explore">
+      <div class="container">
+        <h2 class="section-heading">Explore <span class="gradient">Veltroniq</span></h2>
+        <p class="section-intro">
+          Choose an area to explore. Each option takes you to the
+          contact section with the topic already selected.
+        </p>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card-icon">🎨</div>
+            <h3>Design Studio</h3>
+            <p>Explore branding, social graphics, and creative concepts.</p>
+            <a href="#contact" data-topic="Design Studio">Explore design ↗</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">🌐</div>
+            <h3>Web Projects</h3>
+            <p>Share your idea for a personal, creative, or business website.</p>
+            <a href="#contact" data-topic="Web Projects">Explore web projects ↗</a>
+          </article>
+
+          <article class="card">
+            <div class="card-icon">💡</div>
+            <h3>New Ideas</h3>
+            <p>Tell us about a digital idea you would like to develop.</p>
+            <a href="#contact" data-topic="New Ideas">Share an idea ↗</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="about-panel">
+          <h2 class="section-heading">A smarter way to create.</h2>
+          <p>
+            Veltroniq is a digital brand built around creativity,
+            innovation, and accessible technology. Our goal is to make
+            digital ideas easier to explore and develop.
+          </p>
+          <p>
+            We believe good digital experiences should be clear,
+            useful, and designed with people in mind.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="#contact">Let's Connect ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-heading">Let's talk about your idea.</h2>
+        <p class="section-intro">
+          Fill in the form to prepare a message about your project.
+        </p>
+
+        <div class="contact-grid">
+          <div>
+            <h3>Have something in mind?</h3>
+            <p class="section-intro">
+              Tell us what you want to create, improve, or explore.
+              Include enough detail to explain your idea.
+            </p>
+          </div>
+
+          <form class="contact-form" id="contact-form">
+            <label>
+              Your name
+              <input name="name" type="text" placeholder="Enter your name"
+                maxlength="80" required>
+            </label>
+
+            <label>
+              Your email
+              <input name="email" type="email" placeholder="you@example.com"
+                maxlength="150" required>
+            </label>
+
+            <label>
+              What is your project about?
+              <select name="topic" id="topic" required>
+                <option value="">Choose a topic</option>
+                <option>Creative Design</option>
+                <option>Digital Solutions</option>
+                <option>Online Growth</option>
+                <option>Design Studio</option>
+                <option>Web Projects</option>
+                <option>New Ideas</option>
+                <option>Other</option>
+              </select>
+            </label>
+
+            <label>
+              Your message
+              <textarea name="message" placeholder="Tell us about your idea..."
+                maxlength="3000" required></textarea>
+            </label>
+
+            <button class="btn btn-primary" type="submit">
+              Prepare Email ↗
+            </button>
+            <p class="notice">
+              This form opens your email app with a draft. It does not
+              automatically send or store your message.
+            </p>
+            <p id="form-status" role="status"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <a class="logo" href="#home">Veltroni<span>q</span></a>
+      <p>© <span id="year"></span> Veltroniq. All rights reserved.</p>
+      <a href="#home">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    const menuButton = document.getElementById("menu-btn");
+    const navLinks = document.getElementById("nav-links");
+    const topicSelect = document.getElementById("topic");
+    const contactForm = document.getElementById("contact-form");
+    const formStatus = document.getElementById("form-status");
+
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    menuButton.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    document.querySelectorAll("[data-topic]").forEach(link => {
+      link.addEventListener("click", () => {
+        topicSelect.value = link.dataset.topic;
+      });
+    });
+
+    contactForm.addEventListener("submit", event => {
+      event.preventDefault();
+
+      const data = new FormData(contactForm);
+      const subject = encodeURIComponent(
+        "Veltroniq enquiry: " + data.get("topic")
+      );
+      const body = encodeURIComponent(
+        "Name: " + data.get("name") + "\n" +
+        "Email: " + data.get("email") + "\n" +
+        "Topic: " + data.get("topic") + "\n\n" +
+        data.get("message")
+      );
+
+      formStatus.textContent =
+        "Your email draft is ready to open. Add a real Veltroniq contact email in the code first.";
+
+      // Replace the placeholder below with your real business email.
+      const contactEmail = "YOUR_EMAIL@example.com";
+
+      if (contactEmail === "YOUR_EMAIL@example.com") {
+        formStatus.textContent =
+          "Setup needed: replace YOUR_EMAIL@example.com in the code with your real contact email.";
+        return;
+      }
+
+      window.location.href =
+        "mailto:" + contactEmail + "?subject=" + subject + "&body=" + body;
+    });
+  </script>
+</body>
+</html>
