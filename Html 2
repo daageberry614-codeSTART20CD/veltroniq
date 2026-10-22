@@ -1,0 +1,41 @@
+
+<section id="veltroniq-account" style="max-width:520px;margin:40px auto;padding:24px;border-radius:18px;background:#101a30;color:white;font-family:Arial,sans-serif">
+  <h2>Veltroniq Account</h2>
+  <p>Create an account or sign in to continue.</p>
+
+  <form id="vt-signup">
+    <h3>Create account</h3>
+    <label>Email address</label>
+    <input id="vt-signup-email" type="email" autocomplete="email" required
+      style="display:block;width:100%;box-sizing:border-box;padding:12px;margin:8px 0 14px">
+    <label>Password (at least 8 characters)</label>
+    <input id="vt-signup-password" type="password" minlength="8"
+      autocomplete="new-password" required
+      style="display:block;width:100%;box-sizing:border-box;padding:12px;margin:8px 0 14px">
+    <button type="submit">Sign up</button>
+  </form>
+
+  <hr style="margin:24px 0;opacity:.3">
+
+  <form id="vt-login">
+    <h3>Log in</h3>
+    <label>Email address</label>
+    <input id="vt-login-email" type="email" autocomplete="email" required
+      style="display:block;width:100%;box-sizing:border-box;padding:12px;margin:8px 0 14px">
+    <label>Password</label>
+    <input id="vt-login-password" type="password"
+      autocomplete="current-password" required
+      style="display:block;width:100%;box-sizing:border-box;padding:12px;margin:8px 0 14px">
+    <button type="submit">Log in</button>
+  </form>
+
+  <p id="vt-status" role="status" aria-live="polite"></p>
+
+  <div id="vt-dashboard" hidden>
+    <hr style="margin:24px 0;opacity:.3">
+    <h3>My Dashboard</h3>
+    <p>Signed in as: <span id="vt-user-email"></span></p>
+    <p>Your Veltroniq account is active for this session.</p>
+    <button id="vt-logout" type="button">Log out</button>
+  </div>
+</section>
